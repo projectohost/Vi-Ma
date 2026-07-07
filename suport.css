@@ -1,0 +1,85 @@
+body{
+    background:#1b2838;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+header{
+    background:#171a21;
+    padding:20px;
+}
+
+.search{
+    margin:20px;
+}
+
+input{
+    padding:10px;
+    width:250px;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 20px;
+    background:#66c0f4;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+details {
+    /* vw адаптація кнопки до екрану */
+    width: 50vw;
+
+    /* висота кнопки */
+    margin: 15px auto;
+
+    background: #1b2838;
+    color: white;
+    border: 1px solid #66c0f4;
+
+    /* форма кута */
+    border-radius: 10px;
+
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+details:hover {
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+}
+
+summary {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    background: #2a475e;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    float: right;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+details[open] summary::after {
+    content: "−";
+}
+
+details[open] summary {
+    background: #3b6d8f;
+}
+
+details p {
+    padding: 15px;
+    margin: 0;
+    background: #1f3648;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Ігор - Steam</title>
+    <!-- Підключаємо базові стилі (header, footer) та стилі каталогу -->
+    <link rel="stylesheet" href="./index.css"> 
+    <link rel="stylesheet" href="./catalog.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STEAM</div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="suport.html">Підтримка</a>
+            <a href="profile.html">Профіль</a>
+            <a href="#" id="cart-btn" style="color: #66c0f4; font-weight: bold;">Кошик (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main class="catalog-container">
+        <!-- Бокова панель з фільтрами та формою -->
+        <aside class="sidebar">
+            <h3>Фільтри</h3>
+            
+            <div class="filter-group">
+                <label for="genre">Жанр:</label>
+                <select id="genre">
+                    <option value="all">Всі жанри</option>
+                    <option value="action">Екшен</option>
+                    <option value="rpg">Рольові (RPG)</option>
+                    <option value="strategy">Стратегії</option>
+                    <option value="sim">Симулятори</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="price">Максимальна ціна:</label>
+                <input type="range" id="price" min="0" max="10000" step="100" value="10000">
+                <span id="price-value">₴10000</span>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Форма додавання нової гри -->
+            <div class="add-game-form">
+                <h3>Додати гру</h3>
+                <div class="filter-group">
+                    <input type="text" id="new-title" placeholder="Назва гри..." required>
+                </div>
+                <div class="filter-group">
+                    <input type="number" id="new-price" placeholder="Ціна (₴)..." required>
+                </div>
+                <div class="filter-group">
+                    <select id="new-genre">
+                        <option value="action">Екшен</option>
+                        <option value="rpg">Рольові (RPG)</option>
+                        <option value="strategy">Стратегії</option>
+                        <option value="sim">Симулятори</option>
+                    </select>
+                </div>
+                <button id="add-game-btn" class="add-btn">Додати в список</button>
+            </div>
+        </aside>
+
+        <!-- Основний контент -->
+        <section class="main-content">
+            <input type="text" id="search" class="search-bar" placeholder="Пошук ігор за назвою...">
+            
+            <!-- Сюди JS буде додавати картки ігор -->
+            <div class="game-list" id="game-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Steam Style
+    </footer>
+
+    <!-- Модальне вікно кошика -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-btn" id="close-cart">&times;</span>
+            <h2>Ваш кошик</h2>
+            <div id="cart-items">
+                <p>Кошик порожній</p>
+            </div>
+            <div class="cart-total">
+                <strong>Всього до сплати: </strong> <span id="cart-total-price">₴0</span>
+            </div>
+            <button id="checkout-btn" class="add-btn" style="margin-top: 15px; background: #5c7e10;">Оформити замовлення</button>
+        </div>
+    </div>
+
+    <!-- Скрипт каталогу -->
+    <script src="./catalog.js"></script>
+</body>
+</html>

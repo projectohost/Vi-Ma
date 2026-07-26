@@ -23,8 +23,14 @@
             
             <!-- Шапка профілю (Аватар, Нік, Рівень) -->
             <section class="profile-header">
-                <div class="avatar-container">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJuO_SVahd5oRx0cbsit-968v7eCEh-wUWNDedr4liKg&s=10" alt="gabe avatar" class="avatar">
+                <div class="avatar-container" style="text-align: center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJuO_SVahd5oRx0cbsit-968v7eCEh-wUWNDedr4liKg&s=10" alt="gabe avatar" class="avatar" id="main-avatar">
+                    
+                    <!-- Блок для зміни аватарки -->
+                    <div class="change-avatar-box" style="margin-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+                        <input type="text" id="new-avatar-url" placeholder="URL нової аватарки..." style="background: #1d222b; border: 1px solid #3a4b63; color: white; padding: 6px; border-radius: 3px; font-size: 12px; width: 100%; box-sizing: border-box;">
+                        <button onclick="changeMainAvatar()" style="background: #2a475e; border: none; color: white; padding: 6px; cursor: pointer; border-radius: 3px; font-size: 12px; transition: background 0.3s;">Змінити аватар</button>
+                    </div>
                 </div>
                 
                 <div class="profile-info">
@@ -56,12 +62,12 @@
                     <div class="friends-section">
                         <h3>Друзі <span>(324)</span></h3>
                         <div class="friends-grid">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdbUajJ75hYnxY6XRaVRbXZnpYg7y5VK3IvouJcWdTzEPPCwlkX4osonU&s=10" title="Friend 1">
-                            <img src="https://i.pinimg.com/236x/4c/01/db/4c01db06c93efa7d34be563d2366260a.jpg" title="Friend 2">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLKxePTyMSKl9HuBLO8V-pjwRKciwI0R5w0wGAfd2sQ&s=10" title="Friend 3">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOkAiaoknMAn1RW7kG7_UXtCY5KTkYDSTViKbB2IK-_LEVasgVrwTx7Y&s=10" title="Friend 4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7jIu_6ven4pJper9XkVRPIJM31vS5BmzLM6NnH3qNaw&s=10" title="Friend 5">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQ8DMMn6yRki0sSt6TRJQvLuqxoboeSWs7n2_KhbwcQ&s=10" title="Friend 6">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdbUajJ75hYnxY6XRaVRbXZnpYg7y5VK3IvouJcWdTzEPPCwlkX4osonU&s=10" title="Friend 1" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://i.pinimg.com/236x/4c/01/db/4c01db06c93efa7d34be563d2366260a.jpg" title="Friend 2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLKxePTyMSKl9HuBLO8V-pjwRKciwI0R5w0wGAfd2sQ&s=10" title="Friend 3" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOkAiaoknMAn1RW7kG7_UXtCY5KTkYDSTViKbB2IK-_LEVasgVrwTx7Y&s=10" title="Friend 4" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7jIu_6ven4pJper9XkVRPIJM31vS5BmzLM6NnH3qNaw&s=10" title="Friend 5" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQ8DMMn6yRki0sSt6TRJQvLuqxoboeSWs7n2_KhbwcQ&s=10" title="Friend 6" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
                         </div>
                     </div>
                 </aside>
@@ -99,7 +105,6 @@
                             <button id="post-comment-btn">Опублікувати</button>
                         </div>
                         <div id="comments-list">
-                            <!-- Сюди будуть додаватися нові коментарі -->
                             <div class="comment">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfaV_uEHWuUoaEPvGBRbzxLn0yD7bGWY5V_kj8emjRcA&s=10" class="comment-avatar">
                                 <div class="comment-body">
@@ -119,6 +124,33 @@
         © 2026 Steam Style
     </footer>
 
+    <!-- Скрипт для зміни головної аватарки із збереженням у Local Storage -->
+    <script>
+        // Відпрацьовує, коли сторінка завантажилася
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedAvatarUrl = localStorage.getItem('userAvatar');
+            if (savedAvatarUrl) {
+                document.getElementById('main-avatar').src = savedAvatarUrl;
+            }
+        });
+
+        function changeMainAvatar() {
+            const newUrl = document.getElementById('new-avatar-url').value;
+            const avatarImg = document.getElementById('main-avatar');
+            
+            if (newUrl.trim() !== '') {
+                avatarImg.src = newUrl;
+                
+                // Зберігаємо нове посилання в localStorage браузера
+                localStorage.setItem('userAvatar', newUrl);
+                
+                document.getElementById('new-avatar-url').value = ''; // Очищаємо поле
+            } else {
+                alert('Будь ласка, вставте посилання на зображення!');
+            }
+        }
+    </script>
+
     <script src="./profile.js"></script>
 </body>
-</html>
+</html> ''ууууууууууцццццццці

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профіль gabe - Steam</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./profile.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STEAM</div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="suport.html">Підтримка</a>
+            <a href="profile.html" style="color: #66c0f4; font-weight: bold;">Профіль</a>
+        </nav>
+    </header>
+
+    <main class="profile-wrapper">
+        <div class="profile-container">
+            
+            <!-- Шапка профілю (Аватар, Нік, Рівень) -->
+            <section class="profile-header">
+                <div class="avatar-container" style="text-align: center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJuO_SVahd5oRx0cbsit-968v7eCEh-wUWNDedr4liKg&s=10" alt="gabe avatar" class="avatar" id="main-avatar">
+                    
+                    <!-- Блок для зміни аватарки -->
+                    <div class="change-avatar-box" style="margin-top: 10px; display: flex; flex-direction: column; gap: 5px;">
+                        <input type="text" id="new-avatar-url" placeholder="URL нової аватарки..." style="background: #1d222b; border: 1px solid #3a4b63; color: white; padding: 6px; border-radius: 3px; font-size: 12px; width: 100%; box-sizing: border-box;">
+                        <button onclick="changeMainAvatar()" style="background: #2a475e; border: none; color: white; padding: 6px; cursor: pointer; border-radius: 3px; font-size: 12px; transition: background 0.3s;">Змінити аватар</button>
+                    </div>
+                </div>
+                
+                <div class="profile-info">
+                    <h1>gabe</h1>
+                    <p class="real-name">Gabe Newell <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/32px-Flag_of_the_United_States.svg.png" alt="USA" class="flag"> Washington, United States</p>
+                    <p class="summary">Welcome to Steam.</p>
+                </div>
+
+                <div class="profile-level">
+                    <span class="level-text">Рівень Steam</span>
+                    <div class="level-circle">100</div>
+                </div>
+            </section>
+
+            <!-- Основна частина профілю (2 колонки) -->
+            <section class="profile-body">
+                
+                <!-- Права колонка (Сайдбар) -->
+                <aside class="profile-sidebar">
+                    <div class="status online">В мережі</div>
+                    
+                    <div class="sidebar-links">
+                        <a href="#">Значки <span>142</span></a>
+                        <a href="#">Ігри <span>2,405</span></a>
+                        <a href="#">Інвентар <span>850</span></a>
+                        <a href="#">Скриншоти <span>12</span></a>
+                    </div>
+
+                    <div class="friends-section">
+                        <h3>Друзі <span>(324)</span></h3>
+                        <div class="friends-grid">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdbUajJ75hYnxY6XRaVRbXZnpYg7y5VK3IvouJcWdTzEPPCwlkX4osonU&s=10" title="Friend 1" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://i.pinimg.com/236x/4c/01/db/4c01db06c93efa7d34be563d2366260a.jpg" title="Friend 2" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLKxePTyMSKl9HuBLO8V-pjwRKciwI0R5w0wGAfd2sQ&s=10" title="Friend 3" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOkAiaoknMAn1RW7kG7_UXtCY5KTkYDSTViKbB2IK-_LEVasgVrwTx7Y&s=10" title="Friend 4" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7jIu_6ven4pJper9XkVRPIJM31vS5BmzLM6NnH3qNaw&s=10" title="Friend 5" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQ8DMMn6yRki0sSt6TRJQvLuqxoboeSWs7n2_KhbwcQ&s=10" title="Friend 6" style="width: 50px; height: 50px; object-fit: cover; border-radius: 2px;">
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Ліва колонка (Основний контент) -->
+                <div class="profile-main">
+                    
+                    <div class="recent-activity">
+                        <h3>Недавня активність <span>14.5 год за останні 2 тижні</span></h3>
+                        
+                        <div class="recent-game">
+                            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/capsule_184x69.jpg" alt="CS2">
+                            <div class="game-info">
+                                <h4>Counter-Strike 2</h4>
+                                <p>12.2 год за останні 2 тижні</p>
+                                <p>2,500 год загалом</p>
+                            </div>
+                        </div>
+
+                        <div class="recent-game">
+                            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_184x69.jpg" alt="Dota 2">
+                            <div class="game-info">
+                                <h4>Dota 2</h4>
+                                <p>2.3 год за останні 2 тижні</p>
+                                <p>4,120 год загалом</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Блок коментарів -->
+                    <div class="comments-section">
+                        <h3>Коментарі</h3>
+                        <div class="add-comment">
+                            <textarea id="comment-text" placeholder="Залишити коментар..."></textarea>
+                            <button id="post-comment-btn">Опублікувати</button>
+                        </div>
+                        <div id="comments-list">
+                            <div class="comment">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfaV_uEHWuUoaEPvGBRbzxLn0yD7bGWY5V_kj8emjRcA&s=10" class="comment-avatar">
+                                <div class="comment-body">
+                                    <strong>Gordon</strong> <span class="date">12 лип</span>
+                                    <p>Where is Half-Life 3? 🤨</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Steam Style
+    </footer>
+
+    <!-- Скрипт для зміни головної аватарки із збереженням у Local Storage -->
+    <script>
+        // Відпрацьовує, коли сторінка завантажилася
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedAvatarUrl = localStorage.getItem('userAvatar');
+            if (savedAvatarUrl) {
+                document.getElementById('main-avatar').src = savedAvatarUrl;
+            }
+        });
+
+        function changeMainAvatar() {
+            const newUrl = document.getElementById('new-avatar-url').value;
+            const avatarImg = document.getElementById('main-avatar');
+            
+            if (newUrl.trim() !== '') {
+                avatarImg.src = newUrl;
+                
+                // Зберігаємо нове посилання в localStorage браузера
+                localStorage.setItem('userAvatar', newUrl);
+                
+                document.getElementById('new-avatar-url').value = ''; // Очищаємо поле
+            } else {
+                alert('Будь ласка, вставте посилання на зображення!');
+            }
+        }
+    </script>
+
+    <script src="./profile.js"></script>
+</body>
+</html> ''ууууууууууцццццццці
